@@ -1,11 +1,137 @@
-# Don't check auto-generated stuff into git
-coverage
-node_modules
-stats.json
-package-lock.json
+############################
+# OS X
+############################
 
-# Cruft
 .DS_Store
-npm-debug.log
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+############################
+# Linux
+############################
+
+*~
+
+############################
+# Windows
+############################
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+############################
+# Packages
+############################
+
+*.7z
+*.csv
+*.dat
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.tar.gz
+*.zip
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.seed
+*.so
+*.swo
+*.swp
+*.swn
+*.swm
+*.out
+*.pid
+
+############################
+# Logs and databases
+############################
+
+.tmp
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+############################
+# Misc.
+############################
+
+*#
+ssl
 .idea
-dist/
+nbproject
+public/uploads/*
+
+############################
+# Node.js
+############################
+
+lib-cov
+lcov.info
+pids
+logs
+results
+node_modules
+.node_history
+.eslintcache
+package-lock.json
+.yarn/*
+
+############################
+# Tests
+############################
+
+coverage
+
+############################
+# Strapi
+############################
+
+.env*
+license.txt
+exports
+.strapi
+*.cache
+dist
+build
+.strapi-updater.json
+package
+config/certs/*
+
+############################
+# VS Code files for those working on multiple tools
+############################
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/template-code-workspace.json
+*.code-workspace
+
+############################
+# Exceptions
+############################
+
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!**/.gitkeep
