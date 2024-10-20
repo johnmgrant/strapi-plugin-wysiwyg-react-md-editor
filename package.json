@@ -2,43 +2,20 @@
   "name": "strapi-plugin-wysiwyg-react-md-editor",
   "version": "4.5.3",
   "description": "Replaces the default Strapi WYSIWYG editor with react md editor.",
-  "strapi": {
-    "name": "wysiwyg-react-md-editor",
-    "icon": "plug",
-    "displayName": "React MD Editor",
-    "description": "Replaces the default Strapi WYSIWYG editor with react md editor.",
-    "required": false,
-    "kind": "plugin"
+  "keywords": [
+    "strapi",
+    "plugins",
+    "rich text editor"
+  ],
+  "homepage": "https://github.com/kwinyyyc/strapi-plugin-wysiwyg-react-md-editor#readme",
+  "bugs": {
+    "url": "https://github.com/kwinyyyc/strapi-plugin-wysiwyg-react-md-editor/issues"
   },
-  "dependencies": {
-    "@strapi/design-system": "^1.19.0",
-    "@strapi/helper-plugin": "^4.25.12",
-    "@strapi/icons": "^1.19.0",
-    "@uiw/react-md-editor": "^4.0.0",
-    "prop-types": "^15.7.13"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwinyyyc/strapi-plugin-wysiwyg-react-md-editor.git"
   },
-  "devDependencies": {
-    "@strapi/strapi": "^4.25.13",
-    "@strapi/typescript-utils": "^4.6.0",
-    "@types/prop-types": "^15.7.13",
-    "@types/react": "^17.0.53",
-    "@types/react-dom": "^18.0.28",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.26",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^5.3.4",
-    "rimraf": "^5.0.5",
-    "styled-components": "^5.3.11",
-    "typescript": "5.4.5"
-  },
-  "peerDependencies": {
-    "@strapi/strapi": "^4.25.0",
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0",
-    "react-router-dom": "^5.2.0",
-    "styled-components": "^5.3.11"
-  },
+  "license": "MIT",
   "author": {
     "name": "Kwinten",
     "email": "kwinten.yc.li@gmail.com",
@@ -51,28 +28,61 @@
       "url": "https://github.com/kwinyyyc"
     }
   ],
+  "scripts": {
+    "build": "yarn clean; tsc -p tsconfig.server.json",
+    "clean": "rimraf dist",
+    "develop": "tsc -p tsconfig.server.json -w",
+    "prepack": "yarn build"
+  },
+  "dependencies": {
+    "@strapi/design-system": "^1.19.0",
+    "@strapi/helper-plugin": "^4.25.12",
+    "@strapi/icons": "^1.19.0",
+    "@strapi/strapi": "^4.25.15",
+    "@uiw/react-md-editor": "^4.0.4",
+    "clsx": "^2.1.1",
+    "prop-types": "^15.8.1",
+    "rehype-katex": "^7.0.1",
+    "rehype-slug": "^6.0.0",
+    "remark-breaks": "^4.0.0",
+    "remark-directive": "^3.0.0",
+    "remark-directive-rehype": "^0.4.2",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "remark-toc": "^9.0.0"
+  },
+  "devDependencies": {
+    "@strapi/typescript-utils": "^4.25.15",
+    "@types/prop-types": "^15.7.13",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.0.28",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.34",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-is": "^18.3.1",
+    "react-router-dom": "^5.3.4",
+    "rimraf": "^5.0.10",
+    "styled-components": "^5.3.11",
+    "typescript": "5.6.3"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-is": "^18.3.1",
+    "react-router-dom": "^5.3.4",
+    "styled-components": "^5.3.11"
+  },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "keywords": [
-    "strapi",
-    "plugins",
-    "rich text editor"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kwinyyyc/strapi-plugin-wysiwyg-react-md-editor.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kwinyyyc/strapi-plugin-wysiwyg-react-md-editor/issues"
-  },
-  "homepage": "https://github.com/kwinyyyc/strapi-plugin-wysiwyg-react-md-editor#readme",
-  "scripts": {
-    "prepack": "yarn build",
-    "develop": "tsc -p tsconfig.server.json -w",
-    "clean": "rimraf dist",
-    "build": "yarn clean && tsc -p tsconfig.server.json"
-  },
-  "license": "MIT"
+  "strapi": {
+    "name": "wysiwyg-react-md-editor",
+    "icon": "plug",
+    "displayName": "React MD Editor",
+    "description": "Replaces the default Strapi WYSIWYG editor with react md editor.",
+    "required": false,
+    "kind": "plugin"
+  }
 }
