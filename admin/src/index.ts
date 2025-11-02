@@ -1,17 +1,16 @@
-import {prefixPluginTranslations} from '@strapi/helper-plugin';
-
 import pluginPkg from '../../package.json';
-import pluginId from './pluginId';
-import Initializer from './components/Initializer';
-import ReactMdEditor from './components/ReactMdEditor';
+import {PLUGIN_ID} from './utils/pluginId';
+import {Initializer} from './components/Initializer';
+import {CustomField} from './components/CustomField';
+import {getTranslation} from './utils/getTranslation';
 
 const name = pluginPkg.strapi.name;
 
 export default {
   register(app: any) {
-    app.addFields({type: 'wysiwyg', Component: ReactMdEditor});
+    app.addFields({type: 'richtext', Component: CustomField});
     const plugin = {
-      id: pluginId,
+      id: PLUGIN_ID,
       initializer: Initializer,
       isReady: false,
       name,
@@ -19,18 +18,13 @@ export default {
 
     app.registerPlugin(plugin);
   },
-
-  bootstrap(app: any) {},
-
-  async registerTrads(app: any) {
-    const {locales} = app;
-
+  async registerTrads({locales}: any) {
     const importedTrads = await Promise.all(
-      (locales as any[]).map((locale) => {
+      locales.map((locale: any) => {
         return import(`./translations/${locale}.json`)
           .then(({default: data}) => {
             return {
-              data: prefixPluginTranslations(data, pluginId),
+              data: data,
               locale,
             };
           })

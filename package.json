@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-wysiwyg-react-md-editor",
-  "version": "4.5.3",
+  "version": "5.8.2",
   "description": "Replaces the default Strapi WYSIWYG editor with react md editor.",
   "keywords": [
     "strapi",
@@ -28,50 +28,92 @@
       "url": "https://github.com/kwinyyyc"
     }
   ],
+  "contributors": [
+    {
+      "name": "John Mitchell-Grant",
+      "url": "https://github.com/johnmgrant"
+    },
+    {
+      "name": "Saikat Mitra",
+      "url": "https://github.com/saikatmitra91"
+    },
+    {
+      "name": "琚致远 / Zhiyuan Ju",
+      "url": "https://github.com/juzhiyuan"
+    },
+    {
+      "name": "Oscar Martin Glez-Chavez",
+      "url": "https://github.com/omartin9203"
+    },
+    {
+      "name": "gordielachance",
+      "url": "https://github.com/gordielachance"
+    },
+    {
+      "name": "Brew-Adam",
+      "url": "https://github.com/AC-CE"
+    }
+  ],
+  "type": "commonjs",
+  "exports": {
+    "./package.json": "./package.json",
+    "./strapi-admin": {
+      "types": "./dist/admin/src/index.d.ts",
+      "source": "./admin/src/index.ts",
+      "import": "./dist/admin/index.mjs",
+      "require": "./dist/admin/index.js",
+      "default": "./dist/admin/index.js"
+    },
+    "./strapi-server": {
+      "types": "./dist/server/src/index.d.ts",
+      "source": "./server/src/index.ts",
+      "import": "./dist/server/index.mjs",
+      "require": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "yarn clean; tsc -p tsconfig.server.json",
+    "build": "strapi-plugin build",
     "clean": "rimraf dist",
-    "develop": "tsc -p tsconfig.server.json -w",
-    "prepack": "yarn build"
+    "develop": "yarn watch",
+    "prepack": "yarn build",
+    "test:ts:back": "run -T tsc -p server/tsconfig.json",
+    "test:ts:front": "run -T tsc -p admin/tsconfig.json",
+    "verify": "strapi-plugin verify",
+    "watch": "strapi-plugin watch",
+    "watch:link": "strapi-plugin watch:link"
   },
   "dependencies": {
-    "@strapi/design-system": "^1.19.0",
-    "@strapi/helper-plugin": "^4.25.12",
-    "@strapi/icons": "^1.19.0",
-    "@strapi/strapi": "^4.25.15",
-    "@uiw/react-md-editor": "^4.0.4",
-    "clsx": "^2.1.1",
-    "prop-types": "^15.8.1",
-    "rehype-katex": "^7.0.1",
-    "rehype-slug": "^6.0.0",
-    "remark-breaks": "^4.0.0",
-    "remark-directive": "^3.0.0",
-    "remark-directive-rehype": "^0.4.2",
-    "remark-gfm": "^4.0.0",
-    "remark-math": "^6.0.0",
-    "remark-toc": "^9.0.0"
+    "@uiw/react-md-editor": "^4.0.0"
   },
   "devDependencies": {
-    "@strapi/typescript-utils": "^4.25.15",
-    "@types/prop-types": "^15.7.13",
-    "@types/react": "^18.3.12",
+    "@strapi/icons": "^2.0.0-rc.11",
+    "@strapi/sdk-plugin": "^5.2.6",
+    "@strapi/strapi": "^5.0.2",
+    "@strapi/typescript-utils": "^5.0.2",
+    "@types/react": "^17.0.53",
     "@types/react-dom": "^18.0.28",
     "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.34",
+    "@types/styled-components": "^5.1.26",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-is": "^18.3.1",
-    "react-router-dom": "^5.3.4",
-    "rimraf": "^5.0.10",
-    "styled-components": "^5.3.11",
-    "typescript": "5.6.3"
+    "react-router-dom": "^6.26.2",
+    "rimraf": "^5.0.5",
+    "styled-components": "^6.1.13",
+    "typescript": "^5.6.0"
   },
   "peerDependencies": {
+    "@strapi/icons": "^2.0.0-rc.11",
+    "@strapi/sdk-plugin": "^5.2.6",
+    "@strapi/strapi": "^5.0.2",
+    "@strapi/typescript-utils": "^5.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-is": "^18.3.1",
-    "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.11"
+    "react-router-dom": "^6.26.2",
+    "styled-components": "^6.1.13"
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
