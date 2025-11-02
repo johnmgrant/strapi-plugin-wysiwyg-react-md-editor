@@ -1,14 +1,14 @@
-import pluginPkg from "../../package.json";
+import pluginPkg from '../../package.json';
 import {PLUGIN_ID} from './utils/pluginId';
-import { Initializer } from "./components/Initializer";
-import { CustomField } from "./components/CustomField";
-import { getTranslation } from "./utils/getTranslation";
+import {Initializer} from './components/Initializer';
+import {CustomField} from './components/CustomField';
+import {getTranslation} from './utils/getTranslation';
 
 const name = pluginPkg.strapi.name;
 
 export default {
   register(app: any) {
-    app.addFields({ type: "richtext", Component: CustomField });
+    app.addFields({type: 'richtext', Component: CustomField});
     const plugin = {
       id: PLUGIN_ID,
       initializer: Initializer,
@@ -18,11 +18,11 @@ export default {
 
     app.registerPlugin(plugin);
   },
-  async registerTrads({ locales }: any) {
+  async registerTrads({locales}: any) {
     const importedTrads = await Promise.all(
       locales.map((locale: any) => {
         return import(`./translations/${locale}.json`)
-          .then(({ default: data }) => {
+          .then(({default: data}) => {
             return {
               data: data,
               locale,
