@@ -65,6 +65,11 @@
   margin: 0;
 }
 
+.w-md-editor-input *,
+.w-md-editor-text-pre > code {
+  font-family: Menlo, Monaco, Consolas, "Source Code Pro", monospace !important;
+}
+
 .w-md-editor-preview .wmde-markdown.wmde-markdown-color {
   display: flex;
   align-self: center;

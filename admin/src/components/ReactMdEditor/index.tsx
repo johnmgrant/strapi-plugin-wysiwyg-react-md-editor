@@ -18,10 +18,6 @@ import {
 } from '../directive/const';
 import {rehypePlugins, remarkPlugins} from '../plugins/const';
 
-import 'katex/dist/katex.min.css';
-import '@uiw/react-markdown-preview/markdown.css';
-import '../../styles/component-styles.css';
-
 const Wrapper = styled.div`
   > div:nth-child(2) {
     display: none;
