@@ -1,3 +1,5 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 ############################
 # OS X
 ############################
@@ -42,7 +44,6 @@ $RECYCLE.BIN/
 *.jar
 *.rar
 *.tar
-*.tar.gz
 *.zip
 *.com
 *.class
@@ -76,7 +77,35 @@ $RECYCLE.BIN/
 ssl
 .idea
 nbproject
+
+
+############################
+# Strapi
+############################
+
 public/uploads/*
+!public/uploads/.gitkeep
+.env*
+license.txt
+exports
+.strapi
+*.cache
+dist
+build
+.strapi-updater.json
+package
+config/certs/*
+.tsbuildinfo
+.eslintcache
+
+
+############################
+# Build
+############################
+
+dist
+build
+
 
 ############################
 # Node.js
@@ -89,30 +118,23 @@ logs
 results
 node_modules
 .node_history
-.eslintcache
-package-lock.json
+
+
+############################
+# Package managers
+############################
+
 .yarn/*
+.pnp.*
+yarn-error.log
+yarn.lock
+
 
 ############################
 # Tests
 ############################
 
 coverage
-
-############################
-# Strapi
-############################
-
-.env*
-license.txt
-exports
-.strapi
-*.cache
-dist
-build
-.strapi-updater.json
-package
-config/certs/*
 
 ############################
 # VS Code files for those working on multiple tools
@@ -128,10 +150,4 @@ config/certs/*
 ############################
 # Exceptions
 ############################
-
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
 !**/.gitkeep
