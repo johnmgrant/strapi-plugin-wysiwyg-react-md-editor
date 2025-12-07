@@ -127,7 +127,6 @@ node_modules
 .yarn/*
 .pnp.*
 yarn-error.log
-yarn.lock
 
 
 ############################
@@ -151,3 +150,9 @@ coverage
 # Exceptions
 ############################
 !**/.gitkeep
+
+# prefer main project eslint and yarn settings
+.eslintrc*
+.eslintignore
+.eslint.config.*
+yarn.lock
