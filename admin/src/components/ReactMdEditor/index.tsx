@@ -4,7 +4,7 @@ import MediaLib from '../MediaLib';
 import styled from 'styled-components';
 import {Stack, Box, Typography} from '@strapi/design-system';
 import {useIntl} from 'react-intl';
-import pluginId from '../../pluginId';
+import {PLUGIN_ID} from '../../utils/pluginId';
 import MDEditor, {
   commands,
   ICommand,
@@ -194,7 +194,7 @@ export const Editor = ({
   }, [JSON.stringify(configs)]);
 
   useEffect(() => {
-    fetch(`/${pluginId}`)
+    fetch(`/${PLUGIN_ID}`)
       .then((response) => response.json())
       .then((data) => {
         setConfigs(data);
